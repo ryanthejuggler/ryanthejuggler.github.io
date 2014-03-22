@@ -86,3 +86,8 @@ blockquote code{
   }
 }
 
+
+.post img{
+  max-width: 500px;
+  margin: auto;
+}
