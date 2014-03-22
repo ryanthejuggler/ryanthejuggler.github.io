@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Calibration plan"
+date: 2014-03-22 15:08:00
+categories: 3D-printing
 ---
 Rather than building a touch probe (which is potentially prone to crashes), I'll be calibrating my printer using optical techniques I picked up while working on my undergrad thesis.
 
