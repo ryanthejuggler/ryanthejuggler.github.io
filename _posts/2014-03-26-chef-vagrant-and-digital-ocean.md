@@ -221,7 +221,7 @@ to launch a VM.
 
 > _Leave your computer._ I mean it. Go for a walk or something. Go buy some celebratory beer.
 
-Once the launch has finished, type the IP address into your browser. You should see the Apache "**It works!**" greeting. If you SSH into your machine, you'll find that MySQL and PHP have already been installed. Crack open those beers you just bought (you got them, right?) because you've just configured your server with minimal effort. You can destroy and bring up your server all day, and it'll always be set up just the way you want it to be.
+Once the launch has finished, type the IP address into your browser. You should see the Apache "**It works!**" greeting. If you SSH into your machine, you'll find that MySQL and PHP have already been installed. Crack open some beers, because you've just configured your server with minimal effort. You can destroy and bring up your server all day, and it'll always be set up just the way you want it to be.
 
 ## Explore
 
