@@ -4,7 +4,6 @@ title: "Chef, Vagrant, and DigitalOcean"
 categories: devops
 date: 2014-03-26 19:00:00
 ---
-
 For a while now I've been longing for a personal infrastructure---a Git server, a Jenkins server, and some form 
 of automated deployment. I've struggled (_really_ struggled) with chef-server on and off for the past few months 
 to no avail. However, today someone at work showed me Vagrant. It turns out that there's a way to launch 
@@ -185,6 +184,11 @@ end
 
 > By default, Vagrant will create a new key called "Vagrant" and push it to DigitalOcean. If you want to use an existing key instead, add a line `provider.ssh_key_name = "mykeyname"` immediately below the `provider.region` line.
 
+> Finally, in order to use the `digital_ocean` provider by default, we'll add a line
+> {% highlight ruby %}
+ENV['VAGRANT_DEFAULT_PROVIDER'] = 'digital_ocean'
+{% endhighlight %}
+
 ### Get Vagrant to use our Chef recipe
 In order to make sure our new VM has Chef installed, we'll use the `vagrant-omnibus` plugin.
 {%highlight bash%}
@@ -206,18 +210,18 @@ end
 {% endhighlight %}
 
 ### Launch the VM with our new configuration
-> At this point, you can bring up the VM with
-> {% highlight bash %}
-vagrant up --provider=digital_ocean
+At this point, you can bring up the VM with
+{% highlight bash %}
+vagrant up
 {% endhighlight %}
 
-> to launch a VM with your newly configured `digital_ocean` provider. It'll take a couple minutes, so don't get anxious if it doesn't return right away. You'll see `Creating a new droplet...` on the screen for a bit, then `Assigned IP address: xxx.xxx.xxx.xxx` for what'll feel like forever. Pay attention to the IP address and write it down; you'll need it in a minute.
+to launch a VM.
+
+> If you've been following the "DigitalOcean" sections, it'll launch it with your newly configured `digital_ocean` provider. It'll take a couple minutes, so don't get anxious if it doesn't return right away. You'll see `Creating a new droplet...` on the screen for a bit, then `Assigned IP address: xxx.xxx.xxx.xxx` for what'll feel like forever. Pay attention to the IP address and write it down; you'll need it in a minute.
 
 > _Leave your computer._ I mean it. Go for a walk or something. Go buy some celebratory beer.
 
-> Once the launch has finished, type the IP address into your browser. You should see the Apache "**It works!**" greeting. If you SSH into your machine, you'll find that MySQL and PHP have already been installed. Crack open those beers you just bought (you got them, right?) because you've just configured your server with minimal effort. You can destroy and bring up your server all day, and it'll always be set up just the way you want it to be.
-
-If you don't use DigitalOcean, you can just run `vagrant up`. I haven't actually tried using VirtualBox yet, but I'll add details once I have.
+Once the launch has finished, type the IP address into your browser. You should see the Apache "**It works!**" greeting. If you SSH into your machine, you'll find that MySQL and PHP have already been installed. Crack open those beers you just bought (you got them, right?) because you've just configured your server with minimal effort. You can destroy and bring up your server all day, and it'll always be set up just the way you want it to be.
 
 ## Explore
 
